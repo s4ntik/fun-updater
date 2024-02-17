@@ -1,0 +1,26 @@
+body {
+  margin: 20px;
+  padding: 0;
+  font-size: 18px;
+  overflow: hidden;
+  background: #202124;
+  color: white;
+  background: #202124;
+  color: white;
+  font-family: monospace;
+  word-spacing: -5px;
+  font-weight: bold;
+}
+
+#moving-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg) scaleX(1);
+  cursor: move;
+  border: 1px solid transparent; /* Added for visual indication of selection */
+}
+
+#moving-image.selected {
+  border: 1px dashed #000; /* Added for visual indication of selection */
+}
