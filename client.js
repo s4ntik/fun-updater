@@ -25,7 +25,7 @@ function loadImage(url) {
   image.src = url;
 }
 
-const socket = new WebSocket('wss://obsy.fly.dev/:3001');
+const socket = new WebSocket('wss://obsy.fly.dev/:3000');
 socket.onmessage = function(event) {
   const data = JSON.parse(event.data);
   if (data.type === 'image') {
