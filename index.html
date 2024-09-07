@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Move, Rotate, Mirror, Resize, and Adjust Opacity of Image</title>
-  </head>
-  <body>
-    <img id="moving-image" src="" style="position: absolute;">
-    <br>
-    <label for="image-url">Image URL:</label>
-    <input type="text" id="image-url">
-    <button id="apply-url">Apply</button>
-    <br>
-    <label for="opacity">Opacity:</label>
-    <input type="range" id="opacity" min="0" max="1" step="0.01" value="1">
-    <input type="number" id="opacity-input" min="0" max="1" step="0.01" value="1">
-    <button id="apply-opacity">Apply Opacity</button>
-    <br>
-    <label for="rotation">Rotation:</label>
-    <input type="range" id="rotation" min="0" max="360" step="1" value="0">
-    <input type="number" id="rotation-input" min="0" max="360" step="1" value="0">
-    <button id="apply-rotation">Apply Rotation</button>
-    <br>
-    <label for="mirror">Mirror:</label>
-    <input type="checkbox" id="mirror">
-    <button id="apply-mirror">Apply Mirror</button>
-    <br>
-    <label for="resize">Resize:</label>
-    <input type="number" id="resize" min="0.1" max="10" step="0.1" value="1">
-    <button id="apply-resize">Apply Resize</button>
-	<button id="send-position">Send Position</button>
-    <script src="client.js"></script>
-	<script src="websocket.js"></script>
-  </body>
+    <title>Manage Multiple Images</title>
+</head>
+<body>
+    <button id="images-button">Images</button>
+
+    <!-- Embed the content of image-page.html here -->
+    <div id="iframe-container">
+        <iframe src="image-page.html" frameborder="0" class="code" scrolling="no"></iframe>
+    </div>
+
+    <div id="controls-container">
+        <label for="image-url">Image URL:</label>
+        <input type="text" id="image-url">
+        <button id="add-image">Add Image</button>
+        <label for="opacity">Opacity:</label>
+        <input type="range" id="opacity" min="0" max="1" step="0.01" value="1">
+        <input type="number" id="opacity-input" min="0" max="1" step="0.01" value="1">
+        <button id="apply-opacity">Apply Opacity</button>
+        <label for="rotation">Rotation:</label>
+        <input type="range" id="rotation" min="0" max="360" step="1" value="0">
+        <input type="number" id="rotation-input" min="0" max="360" step="1" value="0">
+        <button id="apply-rotation">Apply Rotation</button>
+        <label for="mirror">Mirror:</label>
+        <input type="checkbox" id="mirror">
+        <button id="apply-mirror">Apply Mirror</button>
+        <label for="resize">Resize:</label>
+        <input type="number" id="resize" min="0.1" max="10" step="0.1" value="1">
+        <button id="apply-resize">Apply Resize</button>
+        <button id="delete-image">Delete Selected Image</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imagesButton = document.getElementById('images-button');
+            const controlsContainer = document.getElementById('controls-container');
+
+            imagesButton.addEventListener('click', () => {
+                controlsContainer.style.display = controlsContainer.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Initialize visibility
+            controlsContainer.style.display = 'none';
+        });
+    </script>
+    <script src="img-control.js"></script>
+    <script src="websocket.js"></script>
+</body>
 </html>
