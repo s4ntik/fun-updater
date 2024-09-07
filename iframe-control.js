@@ -24,7 +24,7 @@ function createImageElement(id, src, x, y, rotation, opacity, mirror, resize) {
     const img = document.createElement('img');
     img.src = src;
     img.id = id;
-    img.style.position = 'absolute';
+    img.style.position = 'fixed';
     img.style.left = `${x}px`;
     img.style.top = `${y}px`;
     img.style.transform = `rotate(${rotation}deg) ${mirror ? 'scaleX(-1)' : ''} ${resize !== 1 ? `scale(${resize})` : ''}`;
