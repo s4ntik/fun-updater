@@ -38,7 +38,7 @@ socket.onmessage = function(event) {
             const imgElement = document.createElement('img');
             imgElement.src = properties.src;
             imgElement.id = id;
-            imgElement.style.position = 'absolute';
+            imgElement.style.position = 'fixed';
             imgElement.style.left = `${properties.x}px`;
             imgElement.style.top = `${properties.y}px`;
             imgElement.style.transform = `rotate(${properties.rotation}deg) ${properties.mirror ? 'scaleX(-1)' : ''} ${properties.resize !== 1 ? `scale(${properties.resize})` : ''}`;
